@@ -1,0 +1,386 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A723AE52498F7F70077ACFC /* Iosh_agent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AE32498F7F70077ACFC /* Iosh_agent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AEB2498F8110077ACFC /* Iosh_agent.m */; };
+		0A723AF02498F8880077ACFC /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AEE2498F8870077ACFC /* substrate.h */; };
+		0A723AF12498F8880077ACFC /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A723AEF2498F8880077ACFC /* libsubstrate.dylib */; };
+		0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AF42498F9CE0077ACFC /* NetworkManager.m */; };
+		0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AF72498FCF40077ACFC /* HookerManager.h */; };
+		0A723B00249900E10077ACFC /* HookerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AFF249900E10077ACFC /* HookerManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A723AE02498F7F70077ACFC /* iosh_agent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iosh_agent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A723AE32498F7F70077ACFC /* Iosh_agent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iosh_agent.h; sourceTree = "<group>"; };
+		0A723AE42498F7F70077ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A723AEB2498F8110077ACFC /* Iosh_agent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Iosh_agent.m; sourceTree = "<group>"; };
+		0A723AEE2498F8870077ACFC /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		0A723AEF2498F8880077ACFC /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstrate.dylib; sourceTree = "<group>"; };
+		0A723AF32498F9C20077ACFC /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		0A723AF42498F9CE0077ACFC /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		0A723AF72498FCF40077ACFC /* HookerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookerManager.h; sourceTree = "<group>"; };
+		0A723AFF249900E10077ACFC /* HookerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookerManager.m; sourceTree = "<group>"; };
+		0A723B01249903170077ACFC /* writeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writeData.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A723ADD2498F7F70077ACFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A723AF12498F8880077ACFC /* libsubstrate.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A723AD62498F7F70077ACFC = {
+			isa = PBXGroup;
+			children = (
+				0A723AE22498F7F70077ACFC /* iosh-agent */,
+				0A723AE12498F7F70077ACFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A723AE12498F7F70077ACFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A723AE02498F7F70077ACFC /* iosh_agent.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A723AE22498F7F70077ACFC /* iosh-agent */ = {
+			isa = PBXGroup;
+			children = (
+				0A723AED2498F8870077ACFC /* substrate */,
+				0A723AF62498FCAE0077ACFC /* Hooker */,
+				0A723AF22498F98C0077ACFC /* network */,
+				0A723AE32498F7F70077ACFC /* Iosh_agent.h */,
+				0A723AEB2498F8110077ACFC /* Iosh_agent.m */,
+				0A723AE42498F7F70077ACFC /* Info.plist */,
+			);
+			path = "iosh-agent";
+			sourceTree = "<group>";
+		};
+		0A723AED2498F8870077ACFC /* substrate */ = {
+			isa = PBXGroup;
+			children = (
+				0A723AEE2498F8870077ACFC /* substrate.h */,
+				0A723AEF2498F8880077ACFC /* libsubstrate.dylib */,
+			);
+			path = substrate;
+			sourceTree = "<group>";
+		};
+		0A723AF22498F98C0077ACFC /* network */ = {
+			isa = PBXGroup;
+			children = (
+				0A723AF32498F9C20077ACFC /* NetworkManager.h */,
+				0A723AF42498F9CE0077ACFC /* NetworkManager.m */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		0A723AF62498FCAE0077ACFC /* Hooker */ = {
+			isa = PBXGroup;
+			children = (
+				0A723AF72498FCF40077ACFC /* HookerManager.h */,
+				0A723AFF249900E10077ACFC /* HookerManager.m */,
+				0A723B01249903170077ACFC /* writeData.h */,
+			);
+			path = Hooker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0A723ADB2498F7F70077ACFC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A723AF02498F8880077ACFC /* substrate.h in Headers */,
+				0A723AE52498F7F70077ACFC /* Iosh_agent.h in Headers */,
+				0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0A723ADF2498F7F70077ACFC /* iosh-agent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A723AE82498F7F70077ACFC /* Build configuration list for PBXNativeTarget "iosh-agent" */;
+			buildPhases = (
+				0A723ADB2498F7F70077ACFC /* Headers */,
+				0A723ADC2498F7F70077ACFC /* Sources */,
+				0A723ADD2498F7F70077ACFC /* Frameworks */,
+				0A723ADE2498F7F70077ACFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iosh-agent";
+			productName = "iosh-agent";
+			productReference = 0A723AE02498F7F70077ACFC /* iosh_agent.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A723AD72498F7F70077ACFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Junyeong Lee";
+				TargetAttributes = {
+					0A723ADF2498F7F70077ACFC = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 0A723ADA2498F7F70077ACFC /* Build configuration list for PBXProject "iosh-agent" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0A723AD62498F7F70077ACFC;
+			productRefGroup = 0A723AE12498F7F70077ACFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A723ADF2498F7F70077ACFC /* iosh-agent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A723ADE2498F7F70077ACFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A723ADC2498F7F70077ACFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */,
+				0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */,
+				0A723B00249900E10077ACFC /* HookerManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0A723AE62498F7F70077ACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0A723AE72498F7F70077ACFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0A723AE92498F7F70077ACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W2KK64JPPU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "iosh-agent/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iosh-agent/substrate",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0A723AEA2498F7F70077ACFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W2KK64JPPU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "iosh-agent/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iosh-agent/substrate",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A723ADA2498F7F70077ACFC /* Build configuration list for PBXProject "iosh-agent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A723AE62498F7F70077ACFC /* Debug */,
+				0A723AE72498F7F70077ACFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A723AE82498F7F70077ACFC /* Build configuration list for PBXNativeTarget "iosh-agent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A723AE92498F7F70077ACFC /* Debug */,
+				0A723AEA2498F7F70077ACFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A723AD72498F7F70077ACFC /* Project object */;
+}
