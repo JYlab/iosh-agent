@@ -110,8 +110,6 @@ typedef struct IOSH_RESPONSE{
         }
     });
     [NSThread sleepForTimeInterval:5.0f];
-
-//    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(runningAfter5Seconds) userInfo:nil repeats:NO];
     return ret;
 }
 
