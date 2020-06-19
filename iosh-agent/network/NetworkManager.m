@@ -83,8 +83,8 @@ typedef struct IOSH_RESPONSE{
             uint8_t buff_rcv[BUFF_SIZE] = {0,};
             
             __block uint8_t * opcode = malloc(OPCODE_SIZE);
-            __block uint8_t * data1;
-            __block uint8_t * data2;
+            __block uint8_t * data1 = NULL;
+            __block uint8_t * data2 = NULL;
             
             if ( -1 == client_socket){
                 NSLog(@"client_socket -1");
@@ -93,7 +93,7 @@ typedef struct IOSH_RESPONSE{
 
             read ( client_socket, &buff_size, 1);
             NSLog(@"buff size: %d", buff_size);
-            if( !buff_size ){
+            if( buff_size != 0 ){
                 uint8_t each_data_size = (buff_size - OPCODE_SIZE) /2;
                 data1  = malloc(each_data_size);
                 data2  = malloc(each_data_size);
@@ -101,15 +101,11 @@ typedef struct IOSH_RESPONSE{
                 read ( client_socket, opcode, OPCODE_SIZE);
                 read ( client_socket, data1 , each_data_size);
                 read ( client_socket, data2 , each_data_size);
-                NSLog( @"RECV OPCODE: %02x", opcode);
-                NSLog( @"RECV DATA1 : %08x", data1);
-                NSLog( @"RECV DATA2 : %08x", data2);
+                NSLog( @"RECV OPCODE: %02x", *opcode);
+                NSLog( @"RECV DATA1 : %08x", *data1);
+                NSLog( @"RECV DATA2 : %08x", *data2);
             }
             NSLog( @"hook_manager doProcess");
-            NSLog( @"OPCODE: %s", opcode);
-            NSLog( @"DATA1 : %08x", data1);
-            NSLog( @"DATA2 : %08x", data2);
-            
             ret = [self.hook_manager doProcess:opcode[0] operand1:data1 operand2:data2];
 
             write( client_socket, &ret, sizeof(int));
