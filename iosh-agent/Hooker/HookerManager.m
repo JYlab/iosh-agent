@@ -34,7 +34,7 @@
     opcode  size : 1byte
     offset  size : 8byte
     replace size : 8byte (->but 4 byte used)
-    total   size : 9byte
+    total   size : 17byte
     */
     if(self.opcode == 0x00){
         // TODO
