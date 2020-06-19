@@ -28,6 +28,7 @@
 		0A723AF72498FCF40077ACFC /* HookerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookerManager.h; sourceTree = "<group>"; };
 		0A723AFF249900E10077ACFC /* HookerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookerManager.m; sourceTree = "<group>"; };
 		0A723B01249903170077ACFC /* writeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writeData.h; sourceTree = "<group>"; };
+		0A723B02249CF1110077ACFC /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				0A723AE32498F7F70077ACFC /* Iosh_agent.h */,
 				0A723AEB2498F8110077ACFC /* Iosh_agent.m */,
 				0A723AE42498F7F70077ACFC /* Info.plist */,
+				0A723B02249CF1110077ACFC /* Util.h */,
 			);
 			path = "iosh-agent";
 			sourceTree = "<group>";

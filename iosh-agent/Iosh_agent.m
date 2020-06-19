@@ -27,7 +27,7 @@
         NSLog(@"[iosh] TARGET NAME: %@",app_name);
         NetworkManager * networkMng = [[NetworkManager alloc] init];
         int ret = [networkMng doProcess];
-        NSLog(@"[iosh] RET %08x",ret);
+        NSLog(@"[iosh] RET %08x", ret);
     }else{
         NSLog(@"[iosh] THIS IS NOT TARGET");
         return;

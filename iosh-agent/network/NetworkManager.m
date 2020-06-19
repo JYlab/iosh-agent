@@ -16,7 +16,9 @@
 #include <sys/socket.h>
 #import "NetworkManager.h"
 #import "HookerManager.h"
+#import "Util.h"
 //#import "writeData.h"
+
 #define RESPONSE_MAX_LEN 255
 #define BUFF_SIZE        255
 #define OPCODE_SIZE      1
@@ -46,12 +48,8 @@ typedef struct IOSH_RESPONSE{
     struct sockaddr_in server_addr;
     struct sockaddr_in client_addr;
     
-
     server_socket = socket( PF_INET, SOCK_STREAM, 0);
-    if( -1 == server_socket){
-        NSLog(@"server_socket is -1");
-        return -1;
-    }
+    if( -1 == server_socket) return SOCKET_FAIL_ERROR;
     
     memset( &server_addr, 0, sizeof( server_addr));
     server_addr.sin_family     = AF_INET;
@@ -59,42 +57,41 @@ typedef struct IOSH_RESPONSE{
     server_addr.sin_addr.s_addr= htonl( INADDR_ANY);
     
     if( -1 == bind( server_socket, (struct sockaddr*)&server_addr, sizeof( server_addr) ) ){
-        NSLog(@"bind -1");
         close(server_socket);
-        return -1;
+        return BIND_FAIL_ERROR;
     }
     
     if( -1 == listen(server_socket, 5)){
-        NSLog(@"listen -1");
         close(server_socket);
-        return -1;
+        return LISTEN_FAIL_ERROR;
     }
     
     self.hook_manager = [[HookerManager alloc] init];
     dispatch_queue_t hooking_handler_queue = dispatch_queue_create("hooking_handler_queue", NULL);
-    NSLog(@"HookerManager init");
-    __block int ret = -1;
+    __block int ret = 0;
     
+    NSLog(@"-- START hooking_handler_queue");
     dispatch_async(hooking_handler_queue, ^{
         while(1){
             __block client_addr_size  = sizeof( client_addr);
             __block client_socket     = accept( server_socket, (struct sockaddr*)&client_addr, &client_addr_size);
             uint8_t buff_size = 0;
             uint8_t buff_rcv[BUFF_SIZE] = {0,};
+            uint8_t each_data_size = 0;
             
             __block uint8_t * opcode = malloc(OPCODE_SIZE);
             __block uint8_t * data1 = NULL;
             __block uint8_t * data2 = NULL;
             
             if ( -1 == client_socket){
-                NSLog(@"client_socket -1");
+                ret = CLIENT_SOCKET_ERROR;
                 return;
             }
 
             read ( client_socket, &buff_size, 1);
             NSLog(@"buff size: %d", buff_size);
             if( buff_size != 0 ){
-                uint8_t each_data_size = (buff_size - OPCODE_SIZE) /2;
+                each_data_size = (buff_size - OPCODE_SIZE) /2;
                 data1  = malloc(each_data_size);
                 data2  = malloc(each_data_size);
                 
@@ -112,6 +109,9 @@ typedef struct IOSH_RESPONSE{
             close( client_socket);
         }
     });
+    [NSThread sleepForTimeInterval:5.0f];
+
+//    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(runningAfter5Seconds) userInfo:nil repeats:NO];
     return ret;
 }
 
