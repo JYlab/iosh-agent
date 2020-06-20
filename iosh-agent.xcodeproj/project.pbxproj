@@ -14,6 +14,7 @@
 		0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AF42498F9CE0077ACFC /* NetworkManager.m */; };
 		0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AF72498FCF40077ACFC /* HookerManager.h */; };
 		0A723B00249900E10077ACFC /* HookerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AFF249900E10077ACFC /* HookerManager.m */; };
+		0A723B07249E6FEA0077ACFC /* MemoryScan.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A723B06249E6FEA0077ACFC /* MemoryScan.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		0A723AFF249900E10077ACFC /* HookerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookerManager.m; sourceTree = "<group>"; };
 		0A723B01249903170077ACFC /* writeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writeData.h; sourceTree = "<group>"; };
 		0A723B02249CF1110077ACFC /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		0A723B03249E6F7A0077ACFC /* MemoryScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryScan.h; sourceTree = "<group>"; };
+		0A723B06249E6FEA0077ACFC /* MemoryScan.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryScan.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				0A723AF72498FCF40077ACFC /* HookerManager.h */,
 				0A723AFF249900E10077ACFC /* HookerManager.m */,
 				0A723B01249903170077ACFC /* writeData.h */,
+				0A723B03249E6F7A0077ACFC /* MemoryScan.h */,
+				0A723B06249E6FEA0077ACFC /* MemoryScan.mm */,
 			);
 			path = Hooker;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */,
+				0A723B07249E6FEA0077ACFC /* MemoryScan.mm in Sources */,
 				0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */,
 				0A723B00249900E10077ACFC /* HookerManager.m in Sources */,
 			);
@@ -327,6 +333,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iosh-agent/substrate",
 				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -354,6 +361,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iosh-agent/substrate",
 				);
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

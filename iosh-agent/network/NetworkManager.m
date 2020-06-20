@@ -19,6 +19,13 @@
 #import "Util.h"
 //#import "writeData.h"
 
+#include <mach/mach.h>
+//#include <libproc.h>
+#include <memory.h>
+//#include <string.h>
+//#include <vector.h>
+
+
 #define RESPONSE_MAX_LEN 255
 #define BUFF_SIZE        255
 #define OPCODE_SIZE      1
@@ -87,6 +94,8 @@ typedef struct IOSH_RESPONSE{
                 ret = CLIENT_SOCKET_ERROR;
                 return;
             }
+            
+            dispatch_get_main_queue();
 
             read ( client_socket, &buff_size, 1);
             NSLog(@"buff size: %d", buff_size);
