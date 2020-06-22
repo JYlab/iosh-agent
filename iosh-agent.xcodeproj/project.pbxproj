@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A062C8724A0DF2F00EB24A0 /* route.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A062C8224A0DF2F00EB24A0 /* route.h */; };
+		0A062C8824A0DF2F00EB24A0 /* libproc.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A062C8324A0DF2F00EB24A0 /* libproc.h */; };
+		0A062C8924A0DF2F00EB24A0 /* proc_info.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A062C8524A0DF2F00EB24A0 /* proc_info.h */; };
+		0A062C8A24A0DF2F00EB24A0 /* kern_control.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A062C8624A0DF2F00EB24A0 /* kern_control.h */; };
 		0A723AE52498F7F70077ACFC /* Iosh_agent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AE32498F7F70077ACFC /* Iosh_agent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AEB2498F8110077ACFC /* Iosh_agent.m */; };
 		0A723AF02498F8880077ACFC /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AEE2498F8870077ACFC /* substrate.h */; };
@@ -14,10 +18,14 @@
 		0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AF42498F9CE0077ACFC /* NetworkManager.m */; };
 		0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AF72498FCF40077ACFC /* HookerManager.h */; };
 		0A723B00249900E10077ACFC /* HookerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AFF249900E10077ACFC /* HookerManager.m */; };
-		0A723B07249E6FEA0077ACFC /* MemoryScan.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A723B06249E6FEA0077ACFC /* MemoryScan.mm */; };
+		0A723B07249E6FEA0077ACFC /* MemScanCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A723B06249E6FEA0077ACFC /* MemScanCore.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A062C8224A0DF2F00EB24A0 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = route.h; sourceTree = "<group>"; };
+		0A062C8324A0DF2F00EB24A0 /* libproc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libproc.h; sourceTree = "<group>"; };
+		0A062C8524A0DF2F00EB24A0 /* proc_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proc_info.h; sourceTree = "<group>"; };
+		0A062C8624A0DF2F00EB24A0 /* kern_control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kern_control.h; sourceTree = "<group>"; };
 		0A723AE02498F7F70077ACFC /* iosh_agent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iosh_agent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A723AE32498F7F70077ACFC /* Iosh_agent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Iosh_agent.h; sourceTree = "<group>"; };
 		0A723AE42498F7F70077ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,8 +38,8 @@
 		0A723AFF249900E10077ACFC /* HookerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookerManager.m; sourceTree = "<group>"; };
 		0A723B01249903170077ACFC /* writeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writeData.h; sourceTree = "<group>"; };
 		0A723B02249CF1110077ACFC /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		0A723B03249E6F7A0077ACFC /* MemoryScan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryScan.h; sourceTree = "<group>"; };
-		0A723B06249E6FEA0077ACFC /* MemoryScan.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryScan.mm; sourceTree = "<group>"; };
+		0A723B03249E6F7A0077ACFC /* MemScanCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemScanCore.h; sourceTree = "<group>"; };
+		0A723B06249E6FEA0077ACFC /* MemScanCore.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MemScanCore.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,9 +54,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A062C8024A0DF2F00EB24A0 /* sys_headers */ = {
+			isa = PBXGroup;
+			children = (
+				0A062C8124A0DF2F00EB24A0 /* net */,
+				0A062C8324A0DF2F00EB24A0 /* libproc.h */,
+				0A062C8424A0DF2F00EB24A0 /* sys */,
+			);
+			path = sys_headers;
+			sourceTree = "<group>";
+		};
+		0A062C8124A0DF2F00EB24A0 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				0A062C8224A0DF2F00EB24A0 /* route.h */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		0A062C8424A0DF2F00EB24A0 /* sys */ = {
+			isa = PBXGroup;
+			children = (
+				0A062C8524A0DF2F00EB24A0 /* proc_info.h */,
+				0A062C8624A0DF2F00EB24A0 /* kern_control.h */,
+			);
+			path = sys;
+			sourceTree = "<group>";
+		};
 		0A723AD62498F7F70077ACFC = {
 			isa = PBXGroup;
 			children = (
+				0A062C8024A0DF2F00EB24A0 /* sys_headers */,
 				0A723AE22498F7F70077ACFC /* iosh-agent */,
 				0A723AE12498F7F70077ACFC /* Products */,
 			);
@@ -100,8 +136,8 @@
 				0A723AF72498FCF40077ACFC /* HookerManager.h */,
 				0A723AFF249900E10077ACFC /* HookerManager.m */,
 				0A723B01249903170077ACFC /* writeData.h */,
-				0A723B03249E6F7A0077ACFC /* MemoryScan.h */,
-				0A723B06249E6FEA0077ACFC /* MemoryScan.mm */,
+				0A723B03249E6F7A0077ACFC /* MemScanCore.h */,
+				0A723B06249E6FEA0077ACFC /* MemScanCore.mm */,
 			);
 			path = Hooker;
 			sourceTree = "<group>";
@@ -113,8 +149,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A062C8724A0DF2F00EB24A0 /* route.h in Headers */,
 				0A723AF02498F8880077ACFC /* substrate.h in Headers */,
+				0A062C8924A0DF2F00EB24A0 /* proc_info.h in Headers */,
+				0A062C8824A0DF2F00EB24A0 /* libproc.h in Headers */,
 				0A723AE52498F7F70077ACFC /* Iosh_agent.h in Headers */,
+				0A062C8A24A0DF2F00EB24A0 /* kern_control.h in Headers */,
 				0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */,
-				0A723B07249E6FEA0077ACFC /* MemoryScan.mm in Sources */,
+				0A723B07249E6FEA0077ACFC /* MemScanCore.mm in Sources */,
 				0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */,
 				0A723B00249900E10077ACFC /* HookerManager.m in Sources */,
 			);
@@ -333,7 +373,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iosh-agent/substrate",
 				);
-				OTHER_LDFLAGS = "-lc++";
+				OTHER_CFLAGS = "-Isys_headers";
+				OTHER_LDFLAGS = "-Wno-c++11-extensions";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -361,7 +402,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iosh-agent/substrate",
 				);
-				OTHER_LDFLAGS = "-lc++";
+				OTHER_CFLAGS = "-Isys_headers";
+				OTHER_LDFLAGS = "-Wno-c++11-extensions";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jylab;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

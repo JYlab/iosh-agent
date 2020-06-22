@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MemoryScan.h"
+#import "MemScanCore.h"
+#include <sys/proc.h>
+#include <libproc.h>
+
+
 
 
 
@@ -18,13 +22,15 @@
     delete [] self.region;
 }
 
--(void)initRegions{
+-(void)resetRegions{
     if(region){
         [self freeRegion];
     }
+    region = new IOSH_Region();
+    
 }
 
--(scan_result_t)scan:(void*)target compare_op:(char*)compare_op{
+-(scan_result_t)scan:(void*)target compare_type:(char*)compare_type{
     scan_result_t result;
     
 
