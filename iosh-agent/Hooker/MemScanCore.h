@@ -14,7 +14,6 @@
 #include <string>
 #include <vector>
 
-
 // Cpp
 typedef struct {
     uint32_t matched;

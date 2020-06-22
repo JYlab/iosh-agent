@@ -11,10 +11,6 @@
 #include <sys/proc.h>
 #include <libproc.h>
 
-
-
-
-
 @implementation MemScanCore
 @synthesize region_vec;
 
@@ -52,7 +48,7 @@
             if (writable) {
                 IOSH_Region iosh_region;
                 iosh_region.address = region_info.pri_address;
-                iosh_region.size = region_info.pri_size;
+                iosh_region.size    = region_info.pri_size;
                 self.region_vec->push_back(iosh_region);
                 count ++;
             }
@@ -60,6 +56,7 @@
     }
 }
 
+// (TODO) scan API like 'cheat engine'
 -(scan_result_t)scan:(void*)target compare_type:(char*)compare_type{
     scan_result_t result;
     
