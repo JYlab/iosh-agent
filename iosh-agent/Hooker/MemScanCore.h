@@ -19,6 +19,7 @@ typedef struct {
     uint32_t matched;
 } scan_result_t;
 
+
 using namespace std;
 class IOSH_Region {
 public:
@@ -46,7 +47,6 @@ public:
 @property std::vector<IOSH_Region> * region_vec;
 -(void)resetRegions;
 -(scan_result_t)scan:(void*)target compare_type:(char*)compare_type;
-
 
 
 @end
