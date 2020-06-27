@@ -64,7 +64,13 @@ bool g_running = false;
 
 #define COMPARED_TYPE sizeof(uint32_t) // TODO. If it is uint32_t
 
-
+-(bool)compare:(void*)target data:(void*)data type:(NSString*)type{
+    if( [type isEqualToString:@"eq"] ){
+        if(data == target)
+            return true;
+    }
+    return false;
+}
 
 // (TODO) scan API like 'cheat engine'
 -(scan_result_t)scan:(void*)target compare_type:(char*)compare_type{
@@ -88,17 +94,14 @@ bool g_running = false;
                 uint32_t idx = 0;
                 uint8_t * end_p = (region_data_p + region.size);
                 while (itRegion_data < end_p) {
-                    if(!strcmp(compare_type,"eq")){
-                        if(region_data_p == target){
-                            ++ match_count;
-                            // --- TODO.. I'm tired today. ---
-
-                        }
+                    if([self compare:target data:itRegion_data type:@"eq"]){
+                        ++ match_count;
                     }
                     itRegion_data += COMPARED_TYPE;
                     idx += COMPARED_TYPE;
                 }
             }
+            [self freeRegion];
         }
     }
     return result;
