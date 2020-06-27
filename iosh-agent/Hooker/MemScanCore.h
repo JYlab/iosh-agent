@@ -19,8 +19,30 @@ typedef struct {
     uint32_t matched;
 } scan_result_t;
 
-
 using namespace std;
+
+class IOSH_Memory_Page {
+public:
+    IOSH_Memory_Page() {
+        addresses = NULL;
+        data = NULL;
+        data_size = 0;
+    }
+    ~IOSH_Memory_Page() {
+        if (addresses) {
+            delete addresses;
+        }
+        if (data) {
+            delete[] data;
+        }
+    }
+public:
+    vector<vm_address_t> * addresses;
+    uint8_t * data;
+    size_t data_size;
+};
+
+
 class IOSH_Region {
 public:
     IOSH_Region() {

@@ -13,7 +13,7 @@
 
 
 mach_port_t g_target_task = 0;
-bool g_running = false;
+bool g_firstRun = false;
 
 @implementation MemScanCore
 @synthesize region_vec;
@@ -36,7 +36,7 @@ bool g_running = false;
     if(self.region_vec){
         [self freeRegion];
     }
-    g_running = true;
+    g_firstRun = true;
     
     int pid = [[NSProcessInfo processInfo] processIdentifier];
     kern_return_t ret = NULL;
@@ -79,6 +79,7 @@ bool g_running = false;
     vector<IOSH_Region>::iterator itRegion;
     for(itRegion = self.region_vec->begin(); itRegion != self.region_vec->end(); itRegion++){
         IOSH_Region region = *itRegion;
+        vector<IOSH_Region> * used_regions = new vector<IOSH_Region>();
         
         vm_size_t raw_data_read_count = 0;
         size_t data_count = region.size / COMPARED_TYPE;
@@ -90,7 +91,7 @@ bool g_running = false;
             uint8_t  * itRegion_data    = region_data_p;
             uint32_t match_count  = 0;
             
-            if(g_running){
+            if(g_firstRun){
                 uint32_t idx = 0;
                 uint8_t * end_p = (region_data_p + region.size);
                 while (itRegion_data < end_p) {
@@ -101,9 +102,12 @@ bool g_running = false;
                     idx += COMPARED_TYPE;
                 }
             }
-            [self freeRegion];
+            if(match_count > 0){
+                result.matched += match_count;
+            }
         }
     }
+    [self freeRegion];
     return result;
 }
 @end
