@@ -17,7 +17,7 @@
 		0A723AF12498F8880077ACFC /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A723AEF2498F8880077ACFC /* libsubstrate.dylib */; };
 		0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AF42498F9CE0077ACFC /* NetworkManager.m */; };
 		0A723AF82498FCF40077ACFC /* HookerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A723AF72498FCF40077ACFC /* HookerManager.h */; };
-		0A723B00249900E10077ACFC /* HookerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AFF249900E10077ACFC /* HookerManager.m */; };
+		0A723B00249900E10077ACFC /* HookerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A723AFF249900E10077ACFC /* HookerManager.mm */; };
 		0A723B07249E6FEA0077ACFC /* MemScanCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A723B06249E6FEA0077ACFC /* MemScanCore.mm */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		0A723AF32498F9C20077ACFC /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		0A723AF42498F9CE0077ACFC /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		0A723AF72498FCF40077ACFC /* HookerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookerManager.h; sourceTree = "<group>"; };
-		0A723AFF249900E10077ACFC /* HookerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HookerManager.m; sourceTree = "<group>"; };
+		0A723AFF249900E10077ACFC /* HookerManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HookerManager.mm; sourceTree = "<group>"; };
 		0A723B01249903170077ACFC /* writeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = writeData.h; sourceTree = "<group>"; };
 		0A723B02249CF1110077ACFC /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		0A723B03249E6F7A0077ACFC /* MemScanCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemScanCore.h; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0A723AF72498FCF40077ACFC /* HookerManager.h */,
-				0A723AFF249900E10077ACFC /* HookerManager.m */,
+				0A723AFF249900E10077ACFC /* HookerManager.mm */,
 				0A723B01249903170077ACFC /* writeData.h */,
 				0A723B03249E6F7A0077ACFC /* MemScanCore.h */,
 				0A723B06249E6FEA0077ACFC /* MemScanCore.mm */,
@@ -230,7 +230,7 @@
 				0A723AF52498F9CE0077ACFC /* NetworkManager.m in Sources */,
 				0A723B07249E6FEA0077ACFC /* MemScanCore.mm in Sources */,
 				0A723AEC2498F8110077ACFC /* Iosh_agent.m in Sources */,
-				0A723B00249900E10077ACFC /* HookerManager.m in Sources */,
+				0A723B00249900E10077ACFC /* HookerManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

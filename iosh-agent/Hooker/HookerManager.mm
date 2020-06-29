@@ -17,12 +17,16 @@
 
 #import "HookerManager.h"
 #import "writeData.h"
+#import "MemScanCore.h"
+
 #define UINT_PTR_SIZE  sizeof(uintptr_t)
 #define SIZE_T_SIZE    sizeof(size_t)
 #define UINT32_SIZE    sizeof(uint32_t)
 #define free_operand(x, y) free(x);free(y);
 #define SWAP_UINT32(x) (((x) >> 24) | (((x) & 0x00FF0000) >> 8) | (((x) & 0x0000FF00) << 8) | ((x) << 24))
 
+
+extern MemScanCore * g_scanner;
 
 @implementation HookerManager
 @synthesize opcode;
@@ -51,8 +55,20 @@
         free_operand(data1, data2);
         return ret;
         
+    /*
+    [[ OPCODE "0x01" : memory scanner ]]
+    opcode  size : 1byte
+    offset  size : 8byte
+    */
     }else if(self.opcode == 0x01){
-        // TODO
+        uint64_t resetOP = 0;
+        memcpy(&resetOP , data2, sizeof(uint64_t));
+        if(resetOP == 0xffffffff)
+            [g_scanner resetRegions];
+        
+        scan_result_t result = [g_scanner scan:data1 compare_type:@"eq"]; // TODO -> Chnage hardcoding "eq"
+        for(int i=0; result.matched_offset->size(); i++)
+            NSLog(@"Matched Offset  : 0x%08llx", (*result.matched_offset)[i] );
         
     }else if(self.opcode == 0x02){
         // TODO

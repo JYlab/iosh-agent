@@ -14,12 +14,13 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 // Cpp
 typedef struct {
-    uint32_t matched;
+    vector<uint64_t>* matched_offset; // TODO: uint32_t -> defined by user
 } scan_result_t;
 
-using namespace std;
 
 class IOSH_Memory_Page {
 public:
@@ -68,8 +69,7 @@ public:
 @interface MemScanCore : NSObject
 @property std::vector<IOSH_Region> * region_vec;
 -(void)resetRegions;
--(scan_result_t)scan:(void*)target compare_type:(char*)compare_type;
-
+-(scan_result_t)scan:(void*)target compare_type:(NSString*)compare_type;
 
 @end
 

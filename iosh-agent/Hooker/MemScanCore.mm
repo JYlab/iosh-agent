@@ -13,7 +13,8 @@
 
 
 mach_port_t g_target_task = 0;
-bool g_firstRun = false;
+bool g_firstScan = false;
+
 
 @implementation MemScanCore
 @synthesize region_vec;
@@ -36,7 +37,7 @@ bool g_firstRun = false;
     if(self.region_vec){
         [self freeRegion];
     }
-    g_firstRun = true;
+    g_firstScan = true;
     
     int pid = [[NSProcessInfo processInfo] processIdentifier];
     kern_return_t ret = NULL;
@@ -72,8 +73,8 @@ bool g_firstRun = false;
     return false;
 }
 
-// (TODO) scan API like 'cheat engine'
--(scan_result_t)scan:(void*)target compare_type:(char*)compare_type{
+// (TODO) scan API like 'cheat engine' -> Don't use it. not finsih dev yet. (2020.06.29)
+-(scan_result_t)scan:(void*)target compare_type:(NSString*)compare_type{
     scan_result_t result;
     
     vector<IOSH_Region>::iterator itRegion;
@@ -91,11 +92,12 @@ bool g_firstRun = false;
             uint8_t  * itRegion_data    = region_data_p;
             uint32_t match_count  = 0;
             
-            if(g_firstRun){
+            if(g_firstScan){
                 uint32_t idx = 0;
                 uint8_t * end_p = (region_data_p + region.size);
                 while (itRegion_data < end_p) {
                     if([self compare:target data:itRegion_data type:@"eq"]){
+                        result.matched_offset->push_back(idx);
                         ++ match_count;
                     }
                     itRegion_data += COMPARED_TYPE;
@@ -103,7 +105,7 @@ bool g_firstRun = false;
                 }
             }
             if(match_count > 0){
-                result.matched += match_count;
+                
             }
         }
     }
@@ -111,3 +113,7 @@ bool g_firstRun = false;
     return result;
 }
 @end
+
+
+MemScanCore * g_scanner = [[MemScanCore alloc] init];
+
