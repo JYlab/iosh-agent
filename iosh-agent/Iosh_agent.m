@@ -15,6 +15,7 @@
 @implementation Iosh_agent
 
 
+
 +(void)load{
     NSLog(@"[iosh] Start iosh_agent Load");
     NSBundle * bundle = [NSBundle mainBundle];
@@ -24,6 +25,7 @@
     id target = [targets objectForKeyedSubscript:app_name];
     BOOL b = [target boolValue];
     if(b){
+        
         NSLog(@"[iosh] TARGET NAME: %@",app_name);
         NetworkManager * networkMng = [[NetworkManager alloc] init];
         int ret = [networkMng doProcess];

@@ -80,8 +80,10 @@ typedef struct IOSH_RESPONSE{
     NSLog(@"-- START hooking_handler_queue");
     dispatch_async(hooking_handler_queue, ^{
         while(1){
-            __block client_addr_size  = sizeof( client_addr);
-            __block client_socket     = accept( server_socket, (struct sockaddr*)&client_addr, &client_addr_size);
+            __block (client_addr_size) = sizeof( client_addr);
+            __block (client_socket) = accept(server_socket, (struct sockaddr*)&client_addr, &client_addr_size);
+//            __block client_addr_size=sizeof( client_addr);
+//            __block client_socket= accept( server_socket, (struct sockaddr*)&client_addr, &client_addr_size);
             uint8_t buff_size = 0;
             uint8_t buff_rcv[BUFF_SIZE] = {0,};
             uint8_t each_data_size = 0;
@@ -94,22 +96,25 @@ typedef struct IOSH_RESPONSE{
                 ret = CLIENT_SOCKET_ERROR;
                 return;
             }
-            
-            dispatch_get_main_queue();
 
             read ( client_socket, &buff_size, 1);
             NSLog(@"buff size: %d", buff_size);
             if( buff_size != 0 ){
-                each_data_size = (buff_size - OPCODE_SIZE) /2;
-                data1  = malloc(each_data_size);
-                data2  = malloc(each_data_size);
-                
                 read ( client_socket, opcode, OPCODE_SIZE);
-                read ( client_socket, data1 , each_data_size);
-                read ( client_socket, data2 , each_data_size);
-                NSLog( @"RECV OPCODE: %02x", *opcode);
-                NSLog( @"RECV DATA1 : %08x", *data1);
-                NSLog( @"RECV DATA2 : %08x", *data2);
+                
+                if(*opcode == 0x00){
+                    each_data_size = (buff_size - OPCODE_SIZE) /2;
+                    data1  = malloc(each_data_size);
+                    data2  = malloc(each_data_size);
+                    read ( client_socket, data1 , each_data_size);
+                    read ( client_socket, data2 , each_data_size);
+                    
+                }else if(*opcode == 0x01){
+                    each_data_size = (buff_size - OPCODE_SIZE);
+                    data1  = malloc(each_data_size);
+                    read ( client_socket, data1 , each_data_size);
+                }
+
             }
             NSLog( @"hook_manager doProcess");
             ret = [self.hook_manager doProcess:opcode[0] operand1:data1 operand2:data2];

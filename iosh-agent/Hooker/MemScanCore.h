@@ -14,11 +14,14 @@
 #include <string>
 #include <vector>
 
+#define GET_PID() [[NSProcessInfo processInfo] processIdentifier]
+#define COMPARED_TYPE sizeof(uint32_t) // TODO. If it is uint32_t
+
 using namespace std;
 
 // Cpp
 typedef struct {
-    vector<uint64_t>* matched_offset; // TODO: uint32_t -> defined by user
+    vector<uint64_t> * matched_offset; // TODO: uint32_t -> defined by user
 } scan_result_t;
 
 

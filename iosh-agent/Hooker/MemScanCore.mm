@@ -39,7 +39,7 @@ bool g_firstScan = false;
     }
     g_firstScan = true;
     
-    int pid = [[NSProcessInfo processInfo] processIdentifier];
+    int pid = GET_PID();
     kern_return_t ret = NULL;
     struct proc_regioninfo region_info;
     uint64_t address = 0;
@@ -63,7 +63,7 @@ bool g_firstScan = false;
     }
 }
 
-#define COMPARED_TYPE sizeof(uint32_t) // TODO. If it is uint32_t
+
 
 -(bool)compare:(void*)target data:(void*)data type:(NSString*)type{
     if( [type isEqualToString:@"eq"] ){
@@ -76,9 +76,10 @@ bool g_firstScan = false;
 // (TODO) scan API like 'cheat engine' -> Don't use it. not finsih dev yet. (2020.06.29)
 -(scan_result_t)scan:(void*)target compare_type:(NSString*)compare_type{
     scan_result_t result;
-    
+    NSLog(@"1");
     vector<IOSH_Region>::iterator itRegion;
     for(itRegion = self.region_vec->begin(); itRegion != self.region_vec->end(); itRegion++){
+        NSLog(@"2");
         IOSH_Region region = *itRegion;
         vector<IOSH_Region> * used_regions = new vector<IOSH_Region>();
         
@@ -87,29 +88,44 @@ bool g_firstScan = false;
 
         uint8_t * region_data_p = new uint8_t[region.size];
         kern_return_t ret = vm_read_overwrite(g_target_task, region.address, region.size, (vm_address_t) region_data_p, &raw_data_read_count);
+        NSLog(@"3");
         if (ret == KERN_SUCCESS) {
+            
             vector<uint32_t> * match_offs_vec = new vector<uint32_t>;
             uint8_t  * itRegion_data    = region_data_p;
             uint32_t match_count  = 0;
             
+            uint32_t * temp  = new uint32_t;
+            NSLog(@"4");
+            
             if(g_firstScan){
+                NSLog(@"5");
                 uint32_t idx = 0;
                 uint8_t * end_p = (region_data_p + region.size);
                 while (itRegion_data < end_p) {
+                    NSLog(@"6");
                     if([self compare:target data:itRegion_data type:@"eq"]){
-                        result.matched_offset->push_back(idx);
-                        ++ match_count;
+                        NSLog(@"7");
+                        uint32_t address;
+                        memcpy(&address, itRegion_data, sizeof(uint32_t));
+                        result.matched_offset->push_back( address );
+                        ++match_count;
+                        NSLog(@"8");
                     }
                     itRegion_data += COMPARED_TYPE;
                     idx += COMPARED_TYPE;
+                    NSLog(@"9");
                 }
             }
             if(match_count > 0){
                 
             }
         }
+        NSLog(@"10");
     }
+    NSLog(@"11");
     [self freeRegion];
+    NSLog(@"12");
     return result;
 }
 @end
